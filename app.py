@@ -1,4 +1,6 @@
 from flask import Flask,render_template,request
+import torch
+from seamless_communication.models.inference import Translator
 
 app = Flask(__name__)
  
@@ -17,6 +19,8 @@ def index():
 def translate_audio(audio_file, target_language):
     translated_text = f'Translated text in {target_language}'
     return translated_text
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
