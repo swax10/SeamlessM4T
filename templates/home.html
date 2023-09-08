@@ -9,7 +9,7 @@
         <input type="text" id="disabledTextInput" class="form-control" placeholder="S2ST (Speech to Speech translation)">
       </div>
       <div class="mb-3">
-        <label for="disabledSelect" class="form-label">Text Language</label>
+        <label for="disabledSelect" class="form-label">Speech Language</label>
         <select id="disabledSelect" class="form-select">
             <option value="Catalan">Catalan</option>
             <option value="Czech">Czech</option>
@@ -49,19 +49,11 @@
         </select>        
       </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-sm text-center">
-            <button id="selectFile" class="mt-4">Select File</button>
-            <button id="startRecording">Start Recording</button>
-            <input type="file" id="fileInput" style="display: none;"> <br>
-            <audio id="audioPlayer" controls></audio>
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-        </div>
-      </div>
+       <!-- Add the file input here -->
+       <div class="mb-3">
+        <label for="fileInput" class="form-label">Upload Audio File</label>
+        <input type="file" id="fileInput" class="form-control" accept="audio/*">
+    </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
     </fieldset>
