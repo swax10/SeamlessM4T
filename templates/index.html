@@ -34,6 +34,57 @@
     {% block content %}
     
     {% endblock  %}
+
+    <script>
+      document.getElementById('selectFile').addEventListener('click', () => {
+          // Trigger the hidden file input when the "Select File" button is clicked
+          document.getElementById('fileInput').click();
+      });
+
+      document.getElementById('fileInput').addEventListener('change', (event) => {
+          // Handle file selection here
+          const selectedFile = event.target.files[0];
+          if (selectedFile) {
+              // Do something with the selected file, e.g., display its name
+              alert(`Selected File: ${selectedFile.name}`);
+          }
+      });
+
+      let mediaRecorder;
+      let audioChunks = [];
+
+      document.getElementById('startRecording').addEventListener('click', async () => {
+          try {
+              const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+              mediaRecorder = new MediaRecorder(stream);
+
+              mediaRecorder.ondataavailable = (event) => {
+                  if (event.data.size > 0) {
+                      audioChunks.push(event.data);
+                  }
+              };
+
+              mediaRecorder.onstop = () => {
+                  const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                  const audioUrl = URL.createObjectURL(audioBlob);
+                  document.getElementById('audioPlayer').src = audioUrl;
+              };
+
+              mediaRecorder.start();
+              alert('Recording from microphone started...');
+              document.getElementById('startRecording').disabled = true;
+
+              // Stop recording after a set duration (e.g., 10 seconds)
+              setTimeout(() => {
+                  mediaRecorder.stop();
+                  alert('Recording from microphone stopped.');
+                  document.getElementById('startRecording').disabled = false;
+              }, 10000); // 10 seconds
+          } catch (error) {
+              console.error('Error accessing microphone:', error);
+          }
+      });
+  </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>

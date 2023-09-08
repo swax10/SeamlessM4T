@@ -6,51 +6,63 @@
       <legend>Seamless-M4t</legend>
       <div class="mb-3">
         <label for="disabledTextInput" class="form-label">Task</label>
-        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+        <input type="text" id="disabledTextInput" class="form-control" placeholder="S2ST (Speech to Speech translation)">
       </div>
       <div class="mb-3">
         <label for="disabledSelect" class="form-label">Text Language</label>
         <select id="disabledSelect" class="form-select">
-          <option value="">Catalan</option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-        </select>
+            <option value="Catalan">Catalan</option>
+            <option value="Czech">Czech</option>
+            <option value="Danish">Danish</option>
+            <option value="Dutch">Dutch</option>
+            <option value="English">English</option>
+            <option value="Estonian">Estonian</option>
+            <option value="Finnish">Finnish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Indonesian">Indonesian</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Maltese">Maltese</option>
+            <option value="Mandarin Chinese">Mandarin Chinese</option>
+            <option value="Modern Standard Arabic">Modern Standard Arabic</option>
+            <option value="Northern Uzbek">Northern Uzbek</option>
+            <option value="Polish">Polish</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Romanian">Romanian</option>
+            <option value="Russian">Russian</option>
+            <option value="Slovak">Slovak</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Swahili">Swahili</option>
+            <option value="Swedish">Swedish</option>
+            <option value="Tagalog">Tagalog</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Thai">Thai</option>
+            <option value="Turkish">Turkish</option>
+            <option value="Ukrainian">Ukrainian</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Welsh">Welsh</option>
+            <option value="Western Persian">Western Persian</option>
+        </select>        
       </div>
-      <div class="mb-3">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-          <label class="form-check-label" for="disabledFieldsetCheck">
-            Can't check this
-          </label>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm text-center">
+            <button id="selectFile" class="mt-4">Select File</button>
+            <button id="startRecording">Start Recording</button>
+            <input type="file" id="fileInput" style="display: none;"> <br>
+            <audio id="audioPlayer" controls></audio>
+          </div>
+          <div class="col-sm">
+            One of three columns
+          </div>
         </div>
       </div>
+
       <button type="submit" class="btn btn-primary">Submit</button>
     </fieldset>
   </form>
