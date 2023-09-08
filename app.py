@@ -1,6 +1,10 @@
-import torch
-from seamless_communication.models.inference import Translator
+from flask import Flask,render_template
 
-
-# Initialize a Translator object with a multitask model, vocoder on the GPU.
-translator = Translator("seamlessM4T_large", vocoder_name_or_card="vocoder_36langs", device=torch.device("cuda:0"))
+app = Flask(__name__)
+ 
+@app.route('/')
+def hello_world():
+    return render_template('home.html')
+ 
+if __name__ == '__main__':
+    app.run(debug=True)
